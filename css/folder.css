@@ -1,0 +1,24 @@
+#folderbar {
+  display: flex;
+  align-items: center;
+}
+#folderbar .item:nth-child(1) {
+  width: 1000;  
+}
+#folderbar .item:nth-child(2) {
+  flex-shrink: 1;
+  flex-grow: 1;
+  width: 500;
+  text-align: center;
+}
+
+.fa-arrow-left {
+  color: gray;
+}
+.fa-arrow-left:hover {
+  color: black;
+}
+
+.content {
+  display: grid;
+}

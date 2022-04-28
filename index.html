@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/effect.css">
+  <script type="text/javascript" src="./js/openclose.js"></script>
+
+  <script src="https://kit.fontawesome.com/0066fc8403.js" crossorigin="anonymous"></script>
+  <title>i`m</title>
+</head>
+<style>
+
+</style>
+<body>
+  <header>
+    <nav id="maine">
+      <div id="folderParent">
+        <div class="folder" onclick="opendocument()">
+          &nbsp;&nbsp;<i class="fa-regular fa-file fa-5x"></i>
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>문서</b>
+        </div>
+        <div class="folder" onclick="opencontent()">
+          <i class="fa-solid fa-folder fa-5x" ></i>
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>컨텐츠</b>
+        </div>
+        <div class="folder" onclick="openmemo()">
+          <i class="fa-solid fa-folder fa-5x"></i>
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>메모장</b>
+        </div>
+      </div>
+    </nav>
+    <iframe id="document" class="items" src="./html/document.html"></iframe>
+    <iframe id="content" class="items" src="./html/content.html"></iframe>
+    <iframe id="memo" class="items" src="./html/memo.html"></iframe>  
+  </header>
+    <div class="settingParent">
+      <a class="setting">English</a>
+      <a class="setting">다크모드</a>      
+    </div>
+</body>
+</html>

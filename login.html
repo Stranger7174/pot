@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./log.css">
+  <title>login page</title>
+</head>
+<body>
+  <div class="log">
+    <p id="date"></p>
+    <p id="time"></p>
+    <div>
+      <a href="geekble.html"><img src="./img/gegeekcl.png" alt="geekble maine" width="200px"></a>
+    </div>
+    <div id="login">
+      <fieldset>
+        <input type="email" name="id">
+        <input type="password" name="pw">
+        <input type="submit" value="네이버로 로그인">
+        <input type="submit" value="카카오로 로그인">
+        <input type="submit" value="google로 로그인">
+        <button onclick="login()" class="w-100">로그인</button>
+        <button onclick="signiup()">회원가입</button>
+      </fieldset>
+    </div>
+  </div>
+</body>
+</html>
+<script type="text/javascript">
+  // 화면이 로드되고 실행
+  window.onload = function() {
+    // 1초마다 반복한다
+    setInterval(setClock, 1000);
+    // setClock();
+  }
+  console.log('반갑습니다');
+  // 로그인은 디비에 저장된 id와 pw를 비교해서 맞으면 웹서버에 세션을 부여해서 로그인 유지
+  // 지금은 로그인 버튼 눌렸을 때 id와 pw를 js에 출력
+  function login() {
+  var id = document.querySelector ("input[name=id]").value;
+  var pw = document.querySelector ("input[name=pw]").value;
+  console.log(id);
+  console.log(pw);
+  alert("환영합니다");
+  location.href = "todo.html"
+}
+function signiup() {
+  location.href = signiup.html
+}
+  function setClock() {
+    var date = Date();
+    console.log(date);
+  }
+  function setClock() {
+    var date = new Date();
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    document.getSelection(date);
+    var time = date.getHours()+"시"+date.getMinutes()+"분"+date.getSeconds()+"초";
+    var ymd = date.getFullYear()+"년"+date.getMonth()+"월"+date.getDay()+"일";
+    document.getElementById("date").innerHTML = ymd;
+    document.getElementById("time").innerHTML = time;
+  }
+
+  function click() {
+    
+  }
+</script>

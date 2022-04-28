@@ -1,0 +1,60 @@
+* {
+  background-color: rgb(252, 243, 230);
+}
+header {
+  width: 1800px;
+}
+#maine {
+  display: flex;/* 메인컨텐츠 정렬 */
+  width: 500px;
+}
+
+#folderParent { /* folder설정 */
+  width: 101px;
+}
+.fa-regular { /* 문서폴더 */
+  color: rgb(0, 183, 255);
+  background-color: transparent;
+  margin: 10px;
+  margin-bottom: 3px;
+}
+.fa-folder { /* 컨텐츠, 메모폴더 */
+  color: rgb(255, 137, 2);
+  background-color: transparent;
+  margin: 10px;
+  margin-bottom: 3px;
+}
+.folder b {
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+.folder:hover {
+  background-color: rgba(247, 186, 105, 0.637);
+}
+
+.items { /* iframe 전체설정 */
+  display: none;
+  border: 10px solid gray;
+  border-radius: 10px 10px;
+  margin: 10px;
+  /* width: 1600px;
+  height: 1010px; */
+  position: absolute;
+  top: 5px;
+}
+
+.settingParent { /* 설정태그 */
+  padding: 10px;
+  width: 200px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border: 10px black;
+}
+.setting {
+  color: gray;
+  margin: 15px;
+}
+.setting:hover {
+  color: black;
+}
