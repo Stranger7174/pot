@@ -6,3 +6,5 @@
 
 -홈
 -포트폴리오
+
+https://github.com/Stranger7174/pot.git
