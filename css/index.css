@@ -37,8 +37,8 @@ header {
   border: 10px solid gray;
   border-radius: 10px 10px;
   margin: 10px;
-  /* width: 1600px;
-  height: 1010px; */
+  width: 1600px;
+  height: 1010px;
   position: absolute;
   top: 5px;
 }
