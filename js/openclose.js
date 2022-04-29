@@ -19,3 +19,10 @@ function contentclose() {
 function memoclose() {
   parent.document.getElementById("memo").style.display = "none";
 }
+
+const colormord = document.querySelector('.setting');
+
+function colorsetting(){  
+  if(addEventListener(cli))
+  
+}
