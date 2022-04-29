@@ -14,7 +14,7 @@
   animation-duration: 1s;
   /* animation-iteration-count:infinite; */
 }
-/* @keyframes open {
+@keyframes open {
   0% {
     
     transform: scale(0.1);
@@ -26,7 +26,7 @@
     
     transform: scale(1.0);
   }
-} */
+}
 /* @keyframes arr {
   from {
     background-color: aqua;
