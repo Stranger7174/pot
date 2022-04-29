@@ -1,4 +1,4 @@
-var effect = parent.document.styleSheets[1].cssRules[0];
+// var effect = parent.document.styleSheets[1].cssRules[0];
 function opendocument() {
   document.querySelector("#document").style.display = "block";
 }
@@ -10,7 +10,7 @@ function openmemo() {
 }
 
 function documentclose() {
-  effect.appendRull.animation.direction("reverse");
+  // effect.appendRull.animation.direction("reverse");
   parent.document.getElementById("document").style.display = "none";
 }
 function contentclose() {
