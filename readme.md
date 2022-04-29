@@ -7,4 +7,4 @@
 -홈
 -포트폴리오
 
-https://github.com/Stranger7174.github.lo/pot/
+https://stranger7174.github.io/pot/
