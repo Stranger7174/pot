@@ -1,28 +1,41 @@
-// var effect = parent.document.styleSheets[1].cssRules[0];
-function opendocument() {
-  document.querySelector("#document").style.display = "block";
-}
-function opencontent() {
-  document.querySelector("#content").style.display = "block";
-}
-function openmemo() {
-  document.querySelector("#memo").style.display = "block";
-}
+(function() {
+  let icons = document.getElementById('main');
 
-function documentclose() {
-  // effect.appendRull.animation.direction("reverse");
-  parent.document.getElementById("document").style.display = "none";
-}
-function contentclose() {
-  parent.document.getElementById("content").style.display = "none";
-}
-function memoclose() {
-  parent.document.getElementById("memo").style.display = "none";
-}
+  const colormord = document.querySelector('.setting');
 
-const colormord = document.querySelector('.setting');
+  function openFolder() {
+    let selecFolder = event.path[1];
 
-function colorsetting(){  
-  if(addEventListener(cli))
-  
-}
+    let getId = selecFolder.getAttribute('id');
+    
+    let windows = {
+      'document': document.getElementById('document'),
+      'content': document.getElementById('page'),
+      'staem': document.getElementById('game'),
+      'Mylog': document.getElementById('log')
+    }
+    // console.log(getId);
+
+    if(getId == 'domFolder') {
+      windows.document.style.display = "block";
+    } else if(getId == 'pagFolder') {
+      windows.content.style.display = "block";
+    } else if(getId == 'gamFolder') {
+      windows.staem.style.display = "block";
+    } else if(getId == 'logFolder') {
+      windows.Mylog.style.display = "block";
+    }
+
+    // console.log('endf');
+  }
+  icons.onclick = openFolder;
+
+  // let prefersColorScheme = document.getElementById('colorScheme');
+
+  function setColorScheme() {
+    // let osScheme = 
+    console.dir(window.colo);
+  }
+
+  // prefersColorScheme.onchange = setColorScheme;
+})();

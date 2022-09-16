@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --color-background: #f9f9f9;
+      --color-default: #000;
+      --color-accent-1: deepskyblue;
+      --color-accent-2: violet;
+    }
+
+    body {
+      background-color: var(--color-background);
+    }
+
+    /* Toggle button */
+    .btn {
+      background-color: var(--color-background);
+      border: var(--color-default) solid 3px;
+      color: var(--color-default);
+    }
+
+    /* SVG lightsabers */
+    .wrapper {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .first-blade {
+      fill: var(--color-accent-1);
+    }
+    .lightsaber {
+      width: 200px;
+      position: absolute;
+    }
+    .btn {
+      position: absolute;
+      padding: 10px 16px;
+      background-color: var(--color-background);
+      border: var(--color-default) solid 3px;
+      color: var(--color-default);
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .lightsaber.second {
+      transform: rotate(90deg);
+    }
+
+    .second-blade {
+      fill: var(--color-accent-2);
+    }
+
+    .handle {
+      fill: var(--color-default);
+    }
+    /* default, light mode styling */
+    .element {
+      background-color: #fff;
+      color: #000;
+    }
+    /*dark-mode*/
+    .dark-mode .example-2 {
+      --color-background: #000;
+      --color-default: #f9f9f9;
+      --color-accent-1: cyan;
+      --color-accent-2: magenta;
+    }
+
+    /* if user switches the system settings to dark mode */
+    /* this media query will be applied */
+    @media (prefers-color-scheme: dark) {
+      .element {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <svg class="lightsaber first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.01 97.1">
+      <polygon class="handle" points="97.01 89.78 93.61 86.37 95.29 84.69 84.59 73.99 73.9 84.69 84.59 95.38 86.28 93.7 89.68 97.1 97.01 89.78"></polygon>
+      <rect class="handle" x="66.92" y="72.23" width="15.13" height="4.68" transform="translate(-30.92 74.51) rotate(-45)"></rect>
+      <rect class="handle" x="60.5" y="65.81" width="15.13" height="4.68" transform="translate(-28.26 68.09) rotate(-45)"></rect>
+      <rect class="handle" x="51.88" y="59.39" width="19.53" height="4.68" transform="translate(-25.6 61.67) rotate(-45)"></rect>
+      <path class="blade first-blade" d="M59.57,54.27,6.41,1.11c-2.7-2.7-5.18.36-5.39.45A3.5,3.5,0,0,0,1,6.5L54.18,59.66Z"></path>
+    </svg>
+    <svg class="lightsaber second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.01 97.1">
+      <polygon class="handle" points="97.01 89.78 93.61 86.37 95.29 84.69 84.59 73.99 73.9 84.69 84.59 95.38 86.28 93.7 89.68 97.1 97.01 89.78"></polygon>
+      <rect class="handle" x="66.92" y="72.23" width="15.13" height="4.68" transform="translate(-30.92 74.51) rotate(-45)"></rect>
+      <rect class="handle" x="60.5" y="65.81" width="15.13" height="4.68" transform="translate(-28.26 68.09) rotate(-45)"></rect>
+      <rect class="handle" x="51.88" y="59.39" width="19.53" height="4.68" transform="translate(-25.6 61.67) rotate(-45)"></rect>
+      <path class="blade second-blade" d="M59.57,54.27,6.41,1.11c-2.7-2.7-5.18.36-5.39.45A3.5,3.5,0,0,0,1,6.5L54.18,59.66Z"></path>
+    </svg>
+    <button class="btn">Toggle mode</button>
+  </div>
+  <script>
+  let darkModeState = false;
+
+  const button = document.querySelector(".btn");
+
+  // MediaQueryList object
+  const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Toggles the "dark-mode" class
+  function toggleDarkMode(state) {
+    document.documentElement.classList.toggle("dark-mode", state);
+    darkModeState = state;
+  }
+
+  // Sets localStorage state
+  function setDarkModeLocalStorage(state) {
+    console.log('storyge');
+    localStorage.setItem("dark-mode", state);
+  }
+
+  // Initial setting
+  toggleDarkMode(useDark.matches);
+
+  // Listen for changes in the OS settings.
+  // Note: the arrow function shorthand works only in modern browsers, 
+  // for older browsers define the function using the function keyword.
+  useDark.addListener((evt) => toggleDarkMode(evt.matches));
+
+  // Toggles the "dark-mode" class on click and sets localStorage state
+  button.addEventListener("click", () => {
+    console.log('click');
+    darkModeState = !darkModeState;
+
+    toggleDarkMode(darkModeState);
+    setDarkModeLocalStorage(darkModeState);
+  });
+  </script>
+</body>
+</html>

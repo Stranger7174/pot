@@ -1,0 +1,85 @@
+:root[color-theme = 'dark'] {
+  --dark-light: #151515;
+}
+:root[color-theme = 'light'] {
+  --dark-light: #ffffff;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+.folder {
+  width: 95px;
+  border-radius: 3px;
+  margin: 14px;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+i.fa-folder {
+  color: rgb(255, 196, 0);
+}
+i.fa-file {
+  color: rgb(43, 230, 255);
+}
+.folder:hover {
+  background-color: rgba(31, 203, 255, 0.308);
+  cursor: pointer;
+}
+.window {
+  display: none;
+  position: fixed;
+  height: 90vh;
+  width: 95vw;
+  top: 0.5vh;
+  background-color: #ffffff;
+  border: 0.4em #797979 solid;
+  border-radius: 5px;
+}
+.fa-arrow-left {
+  color: #797979;
+  margin: 0.15em;
+}
+hr {
+  width: 95%;
+}
+.title {
+  width: calc(99.94% - 3em);
+  float: right  ;
+  text-align: center;
+}
+.myCraete > img {
+  width: 5em;
+}
+section > div > h4 {
+  text-align: center;
+}
+#start {
+  text-align: center;
+}
+.colormode img {
+  width: 5em;
+  margin: 5px;
+}
+#settingParent {
+  position: fixed;
+  bottom: 6px;
+}
+
+@media (prefers-color-scheme: light) {
+  * {
+    color: #000000;
+  }
+  body, body * {
+    background-color: #ffffff;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  * {
+    color: #ffffff;
+  }
+  body, .window {
+    background-color: #151515;
+  }
+}

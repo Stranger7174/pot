@@ -1,66 +1,118 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="EUC-KR">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/index.css">
-  <link rel="stylesheet" href="./css/folder.css">
-  <link rel="stylesheet" href="./css/effect.css">
-  <script type="text/javascript" src="./js/openclose.js"></script>
-
+  <!-- <link rel="stylesheet" href="./css/index.css"> -->
+  <!-- <link rel="stylesheet" href="./css/folder.css"> -->
+  <!-- <link rel="stylesheet" href="./css/effect.css"> -->
+  <link rel="stylesheet" href="./css/index2.css">
   <script src="https://kit.fontawesome.com/0066fc8403.js" crossorigin="anonymous"></script>
   <title>i`m</title>
 </head>
-<style>
-
-</style>
 <body>
   <header>
-    <nav id="maine">
+    <nav id="main">
       <div id="folderParent">
-        <div class="folder" onclick="opendocument()">
-          &nbsp;&nbsp;<i class="fa-regular fa-file fa-5x"></i>
-          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ë¬¸ì„œ</b>
+        <div class="folder" id="domFolder">
+          <i class="fa-regular fa-file fa-5x"></i>
+          <b>¹®¼­</b>
         </div>
-        <div class="folder" onclick="opencontent()">
+        <div class="folder" id="pagFolder">
           <i class="fa-solid fa-folder fa-5x" ></i>
-          <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>ì»¨í…ì¸ </b>
+          <b>À¥ÆäÀÌÁö<br>Æú´õ</b>
         </div>
-        <div class="folder" onclick="openmemo()">
+        <div class="folder" id="gamFolder">
+          <i class="fa-solid fa-folder fa-5x" ></i>
+          <b>°ÔÀÓÆú´õ</b>
+        </div>
+        <div class="folder" id="logFolder">
           <i class="fa-solid fa-folder fa-5x"></i>
-          <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>ë©”ëª¨ìž¥</b>
+          <b>MyLog</b>
         </div>
       </div>
     </nav>
-    <div id="document" class="items">
-      <div id="folderbar">
-        <i class="fa-solid fa-arrow-left fa-3x item" alt="ë’¤ë¡œê°€ê¸°" onclick="documentclose()"></i>
-        <h3 class="item">ë¬¸ì„œ</h3>
-      </div>
-      <div id="content"></div>
-    </div>
-    <div id="content" class="items">
-      <div id="folderbar">
-        <i class="fa-solid fa-arrow-left fa-3x item" alt="ë’¤ë¡œê°€ê¸°" onclick="contentclose()"></i>
-        <h3 class="item">ì»¨í…ì¸ </h3>
-      </div>
-      <div id="content"></div>
-    </div>
-    <div id="memo" class="items">
-      <div id="folderbar">
-        <i class="fa-solid fa-arrow-left fa-3x item" alt="ë’¤ë¡œê°€ê¸°" onclick="memoclose()"></i>
-        <h3 class="item">ë©”ëª¨</h3>
-      </div>
-      <div id="content"></div>
-    </div>
   </header>
-  <div class="settingParent">
-    <a class="setting">Language</a>
-    <a href="">
-      <input type="checkbox" class="setting" onclick="colorsetting()"> ë‹¤í¬ëª¨ë“œ
-    </a>
-    <!-- <a class="setting" onclick="colorsetting()">ë‹¤í¬ëª¨ë“œ</a> -->
+  <article id="document" class="window">
+    <div class="folderbar">
+      <i class="fa-solid fa-arrow-left fa-3x item"></i>
+      <h3 class="title">¹®¼­</h3>
+    </div><hr>
+    <section class="content">
+      <div>
+        <h4>¾î¶²°Ô ÁÁÀº°æÇèÀÎ°¡?</h4>
+        <p>°³ÀÎÀÇ ÃëÇâº°·Î, »ç¿ëÀÚÀÇ È¯°æ¿¡ ¸ÂÃãÇüÀ¸·Î ¾µ¼ö ÀÖÀ¸¸é¼­ ºÒÆíÇÔ ¾øÀÌ Á÷°üÀûÀ¸·Î ¾µ¼ö ÀÖ¾î¾ß ÇÑ´Ù°í »ý°¢ÇÕ´Ï´Ù. °³ÀÎÀûÀ¸·Î ´ÙÅ©¸ðµå¸¦ »ó´çÈ÷ ÁÁ¾ÆÇÏ´Âµ¥ ±× ÀÌÀ¯´Â È­¸é¹à±â°¡ Àû´çÈ÷ ¾îµÎ¿öÁ® ¾îµÎ¿î°÷¿¡¼­µµ º¸±â ÁÁ¾ÆÁö±â ¶§¹®ÀÔ´Ï´Ù. ÇÏÁö¸¸ ¸ðµç»ç¶÷ÀÌ Àú¿Í °°Áö´Â ¾Ê±â¶§¹®¿¡ ¹àÀº È­¸éÀÌ ´õ ÆíÇÑ »ç¶÷µµ ÀÖÀ»°Ì´Ï´Ù.</p>
+        <p>±×·±ºÐµéÀ» À§ÇØ¼­ ¹àÀº È­¸éµµ Áö¿øÇØ¾ßÇÕ´Ï´Ù.</p>
+        <!-- <p>À¥°³¹ßÀ» °øºÎÇÏ±â ½ÃÀÛÇÑ ÀÌÀ¯´Â ¾ÕÀ¸·Î´Â <b>¾î¶²ºÐ¾ß¿¡¼­µç</b> ºüÁú¼ö ¾ø´Â ºÐ¾ß¶ó »ý°¢ÇÏ±â ¶§¹®ÀÔ´Ï´Ù. ±×·¡¼­ YouTube¿Í Ã¥À¸·Î ½ÃÀÛÇØ ÇÐ¿øµµ ´Ù´Ï¸ç °øºÎÇØ¼­ À¥ÆÛºí¸®½ÌÀ» ÇÒ¼ö ÀÖ°Ô µÇ¾ú½À´Ï´Ù. ±×¸®°í ¾ÕÀ¸·Îµµ ±âº»À» ´õ¿í °¥°í´Û¾Æ ÇÁ·ÐÆ®¿£µå±îÁö ´Ù·êÁÙ ¾Æ´Â °³¹ßÀÚ¸¦ ²Þ²Ù°í ÀÖ½À´Ï´Ù.</p> -->
+        <div id="start" class="colormode">
+          <h5>start</h5>
+          <!-- os »ö»ó¸ðµå¿¡ µû¶ó ¼±ÅÃµÇ´Â ÀÌ¹ÌÁö ´Þ¶óÁü -->
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="./img/htmllogdark.png">
+            <source media="(prefers-color-scheme: light)" srcset="./img/htmllogwhite.png">
+            <img src="./img/htmllogwhite.png" alt="html5" srcset="./img/htmllogwhite.png" class="codeImg whiteImg">
+          </picture>
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="./img/csslogdark.png">
+            <source media="(prefers-color-scheme: light)" srcset="./img/csslogwhite.png">
+            <img src="./img/csslogwhite.png" alt="css3" srcset="./img/csslogwhite.png" class="codeImg whiteImg">
+          </picture>
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="./img/jslogdark.png">
+            <source media="(prefers-color-scheme: light)" srcset="./img/jslogwhite.png">
+            <img src="./img/jslogwhite.png" alt="javascript" class="codeImg whiteImg">
+          </picture>
+        </div>
+      </div>
+    </section>
+  </article>
+  <div id="page" class="window">
+    <div class="folderbar">
+      <i class="fa-solid fa-arrow-left fa-3x item"></i>
+      <h3 class="title">À¥ÆäÀÌÁöÆú´õ</h3>
+    </div><hr>
+    <div class="content">
+      <div class="myCraete">
+        <img src="./img/border.jpg" alt="°Ô½ÃÆÇÀÌ¹ÌÁö">
+        <p>°Ô½ÃÆÇ</p>
+      </div>
+    </div>
   </div>
+  <div id="game" class="window">
+    <div class="folderbar">
+      <i class="fa-solid fa-arrow-left fa-3x item"></i>
+      <h3 class="title">°ÔÀÓÆú´õ</h3>
+    </div><hr>
+    <div class="content"></div>
+  </div>
+  <div id="log" class="window">
+    <div class="folderbar">
+      <i class="fa-solid fa-arrow-left fa-3x item"></i>
+      <h3 class="title">MyLog</h3>
+    </div><hr>
+    <div class="content"></div>
+  </div>
+  <div id="settingParent">
+    <!-- <label for="">Language</label> -->
+    <input type="checkbox" name="setting" id="colorScheme">
+    <label for="setting" data-color-scheme="light">´ÙÅ©¸ðµå</label>
+    <!-- <a class="setting" onclick="colorsetting()">´ÙÅ©¸ðµå</a> -->
+  </div>
+  <script type="text/javascript" src="./js/openclose.js"></script>
+  <!-- 
+    {
+      "name": "mooncuontry",
+      "host": "mooncuontry.woobi.co.kr",
+      "protocol": "ftp",
+      "port": 21,
+      "username": "mooncuontry",
+      "password": "ch8452",
+      "remotePath": "/",
+      "uploadOnSave": true,
+      "useTempFile": false,
+      "openSsh": false
+    }
+   -->
 </body>
 </html>
