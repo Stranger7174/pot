@@ -1,12 +1,42 @@
-:root[color-theme = 'dark'] {
-  --dark-light: #151515;
+/* :root[color-theme = 'dark'] {
+  --bacground-color: #151515;
+  --color: #ffffff;
 }
 :root[color-theme = 'light'] {
-  --dark-light: #ffffff;
+  --background-color: #ffffff;
+  --color: #000000;
+} */
+/* @media (prefers-color-scheme: light) {
+  * {
+    color: #000000;
+  }
+  body, body * {
+    background-color: #ffffff;
+  }
 }
-
+@media (prefers-color-scheme: dark) {
+  * {
+    color: #ffffff;
+  }
+  body, .window {
+    background-color: #151515;
+  }
+} */
+:root {
+  --background-color: #ffffff;
+  --color: #000000;
+}
+.setLighteMode {
+  --background-color: #ffffff;
+  --color: #000000;
+}
+.setDarkMode {
+  --bacground-color: #151515;
+  --color: #ffffff;
+}
 body {
   overflow-y: hidden;
+  background-color: var(--bacground-color);
 }
 
 .folder {
@@ -45,7 +75,7 @@ hr {
   width: 95%;
 }
 .title {
-  width: calc(99.94% - 3em);
+  width: calc(calc(0.15em + 99.94%) - 3em);
   float: right  ;
   text-align: center;
 }
@@ -65,21 +95,9 @@ section > div > h4 {
 #settingParent {
   position: fixed;
   bottom: 6px;
+  cursor: pointer;
+}
+#settingParent * {
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: light) {
-  * {
-    color: #000000;
-  }
-  body, body * {
-    background-color: #ffffff;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  * {
-    color: #ffffff;
-  }
-  body, .window {
-    background-color: #151515;
-  }
-}

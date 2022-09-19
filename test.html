@@ -5,6 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /*
+      Copyright (c) 2020 - present, DITDOT Ltd.
+      https://www.ditdot.hr/en
+    */
+
+    /* default, light mode styles set with variables */
+    /* 기본, 라이트 모드 */
     :root {
       --color-background: #f9f9f9;
       --color-default: #000;
@@ -14,16 +21,10 @@
 
     body {
       background-color: var(--color-background);
+      margin: 0;
+      padding: 0;
     }
 
-    /* Toggle button */
-    .btn {
-      background-color: var(--color-background);
-      border: var(--color-default) solid 3px;
-      color: var(--color-default);
-    }
-
-    /* SVG lightsabers */
     .wrapper {
       position: relative;
       width: 100%;
@@ -32,13 +33,8 @@
       justify-content: center;
       align-items: center;
     }
-    .first-blade {
-      fill: var(--color-accent-1);
-    }
-    .lightsaber {
-      width: 200px;
-      position: absolute;
-    }
+
+    /* Toggle button */
     .btn {
       position: absolute;
       padding: 10px 16px;
@@ -49,8 +45,19 @@
       font-size: 18px;
       cursor: pointer;
     }
+
+    /* SVG lightsabers */
+    .lightsaber {
+      width: 200px;
+      position: absolute;
+    }
+
     .lightsaber.second {
       transform: rotate(90deg);
+    }
+
+    .first-blade {
+      fill: var(--color-accent-1);
     }
 
     .second-blade {
@@ -60,26 +67,17 @@
     .handle {
       fill: var(--color-default);
     }
-    /* default, light mode styling */
-    .element {
-      background-color: #fff;
-      color: #000;
-    }
-    /*dark-mode*/
-    .dark-mode .example-2 {
+
+    /*dark-mode styles*/
+    .dark-mode {
       --color-background: #000;
       --color-default: #f9f9f9;
       --color-accent-1: cyan;
       --color-accent-2: magenta;
     }
 
-    /* if user switches the system settings to dark mode */
-    /* this media query will be applied */
-    @media (prefers-color-scheme: dark) {
-      .element {
-        background-color: #000;
-        color: #fff;
-      }
+    .dark-mode .lightsaber path {
+      transition: fill .12s ease-in;
     }
   </style>
   <title>Document</title>
@@ -103,41 +101,45 @@
     <button class="btn">Toggle mode</button>
   </div>
   <script>
-  let darkModeState = false;
+    function load() {
+      // 버튼태그
+      const button = document.querySelector(".btn");
 
-  const button = document.querySelector(".btn");
+      // MediaQueryList object
+      // os color모드 감지
+      const useDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-  // MediaQueryList object
-  const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+      console.log(window);
+      // Toggles the "dark-mode" class based on if the media query matches
+      // class 변경 함수(darkmode 토글)
+      function toggleDarkMode(state) {
+        /* Older browser don't support the second parameter in the
+        classList.toggle method so you'd need to handle this manually
+        if you need to support older browsers. */
+        console.log(state);
+        document.documentElement.classList.toggle("dark-mode", state);
+      }
 
-  // Toggles the "dark-mode" class
-  function toggleDarkMode(state) {
-    document.documentElement.classList.toggle("dark-mode", state);
-    darkModeState = state;
-  }
+      // Initial setting
+      // 로딩시 실행
+      toggleDarkMode(useDark.matches);
 
-  // Sets localStorage state
-  function setDarkModeLocalStorage(state) {
-    console.log('storyge');
-    localStorage.setItem("dark-mode", state);
-  }
+      // Listen for changes in the OS settings
+      // 변수값 변경시 실행
+      useDark.addListener((evt) => {
+        console.log(evt);
+        toggleDarkMode(evt.matches);
+      });
 
-  // Initial setting
-  toggleDarkMode(useDark.matches);
+      // Toggles the "dark-mode" class on click
+      // 클릭시 실행
+      button.addEventListener("click", () => {
+        console.log('log');
+        document.documentElement.classList.toggle("dark-mode");
+      });
+    }
 
-  // Listen for changes in the OS settings.
-  // Note: the arrow function shorthand works only in modern browsers, 
-  // for older browsers define the function using the function keyword.
-  useDark.addListener((evt) => toggleDarkMode(evt.matches));
-
-  // Toggles the "dark-mode" class on click and sets localStorage state
-  button.addEventListener("click", () => {
-    console.log('click');
-    darkModeState = !darkModeState;
-
-    toggleDarkMode(darkModeState);
-    setDarkModeLocalStorage(darkModeState);
-  });
+    window.addEventListener("DOMContentLoaded", load);
   </script>
 </body>
 </html>
